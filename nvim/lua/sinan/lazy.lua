@@ -9,7 +9,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- Example Plugins
+--    { "folke/which-key.nvim", config = true }
 --    { "nvim-lua/plenary.nvim" },          -- Dependency for other plugins
 --    { "nvim-telescope/telescope.nvim" },   -- Fuzzy Finder
 --    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- Syntax Highlighting

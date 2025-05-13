@@ -12,3 +12,8 @@ opt.splitright = true
 opt.splitbelow = true
 opt.scrolloff = 8
  
+opt.whichwrap:append("<,>,[,],h,l")  -- Allow left/right movement across line boundaries
+opt.virtualedit = "onemore"          -- Allow cursor *after* the last character
+
+opt.timeoutlen = 300  -- Time (ms) to wait for a mapped sequence
+

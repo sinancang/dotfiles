@@ -6,8 +6,9 @@ if [ ! -d "$HOME/dotfiles" ]; then
 fi
 
 # Setup Neovim Config
-mkdir -p ~/.config
-ln -sf ~/dotfiles/nvim ~/.config/nvim
+mkdir -p ~/.config/nvim
+ln -sf ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
+ln -sf ~/dotfiles/nvim/lua ~/.config/nvim/lua
 
 echo "Dotfiles setup complete! Reload your terminal."
 
