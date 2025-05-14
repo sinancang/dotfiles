@@ -1,3 +1,5 @@
+
+-- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -8,12 +10,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
---    { "folke/which-key.nvim", config = true }
---    { "nvim-lua/plenary.nvim" },          -- Dependency for other plugins
---    { "nvim-telescope/telescope.nvim" },   -- Fuzzy Finder
---    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- Syntax Highlighting
---    { "folke/tokyonight.nvim" },           -- Theme
---    { "nvim-lualine/lualine.nvim" },       -- Statusline
-})
-
+-- Plugins
+require("lazy").setup("plugins")
