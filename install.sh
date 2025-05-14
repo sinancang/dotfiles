@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOTFILES_URL="https://github.com/sgulan/dotfiles.git"
+DOTFILES_URL="git@github.com:sinancang/dotfiles.git"
 DOTFILES_DIR="$HOME/dotfiles"
 BASHRC="$HOME/.bashrc"
 
