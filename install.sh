@@ -47,13 +47,34 @@ else
   echo "$LINE" >> "$BASHRC"
 fi
 
-# 4b) eval fzf
-LINE='eval "$(fzf --bash)"'
-if grep -Fxq "$LINE" "$BASHRC"; then
-  log "Skipped: fzf integration already in $BASHRC"
+# 4b) fzf shell integration via example scripts, with logging
+KEYBINDINGS_SCRIPT="/usr/share/doc/fzf/examples/key-bindings.bash"
+COMPLETION_SCRIPT="/usr/share/doc/fzf/examples/completion.bash"
+
+# fzf key bindings (Ctrl-T, Ctrl-R, Alt-C)
+if [ -f "$KEYBINDINGS_SCRIPT" ]; then
+  LINE="source $KEYBINDINGS_SCRIPT"
+  if grep -Fxq "$LINE" "$BASHRC"; then
+    log "Skipped: fzf key bindings already in $BASHRC"
+  else
+    log "Adding fzf key bindings to $BASHRC"
+    echo "$LINE" >> "$BASHRC"
+  fi
 else
-  log "Adding fzf shell integration to $BASHRC"
-  echo "$LINE" >> "$BASHRC"
+  log "Warning: fzf key-bindings script not found at $KEYBINDINGS_SCRIPT"
+fi
+
+# fzf completion (Tab)
+if [ -f "$COMPLETION_SCRIPT" ]; then
+  LINE="source $COMPLETION_SCRIPT"
+  if grep -Fxq "$LINE" "$BASHRC"; then
+    log "Skipped: fzf completion already in $BASHRC"
+  else
+    log "Adding fzf completion to $BASHRC"
+    echo "$LINE" >> "$BASHRC"
+  fi
+else
+  log "Warning: fzf completion script not found at $COMPLETION_SCRIPT"
 fi
 
 log "Dotfiles setup complete! Reload your terminal."

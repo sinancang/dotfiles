@@ -3,6 +3,14 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^6",    -- pin to v6.x (latest stable: v6.1.0) :contentReference[oaicite:11]{index=11}
     lazy = false,      -- plugin lazy-loads itself on Rust filetypes :contentReference[oaicite:12]{index=12}
+    init = function()
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*.rs",
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end,
+        })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
