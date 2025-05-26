@@ -33,8 +33,9 @@ fi
 # 3) Setup Neovim Config
 log "Setting up Neovim config in ~/.config/nvim"
 mkdir -p ~/.config/nvim
-ln -sf "$DOTFILES_DIR/nvim/init.lua" ~/.config/nvim/init.lua
-ln -sf "$DOTFILES_DIR/nvim/lua"      ~/.config/nvim/lua
+ln -sf "$DOTFILES_DIR/nvim/init.lua"    ~/.config/nvim/init.lua
+ln -sf "$DOTFILES_DIR/nvim/lua"         ~/.config/nvim/lua
+ln -sf "$DOTFILES_DIR/nvim/stylua.toml" ~/.config/nvim/stylua.toml
 log "Neovim config links created"
 
 # 4) Ensure PATH and fzf shell integration in ~/.bashrc, with logging
