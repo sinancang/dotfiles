@@ -52,6 +52,15 @@ fi
 KEYBINDINGS_SCRIPT="/usr/share/doc/fzf/examples/key-bindings.bash"
 COMPLETION_SCRIPT="/usr/share/doc/fzf/examples/completion.bash"
 
+# 4c) Alias vi to nvim
+ALIAS_LINE='alias vi="nvim"'
+if grep -Fxq "$ALIAS_LINE" "$BASHRC"; then
+  log "Skipped: vi alias already in $BASHRC"
+else
+  log "Adding vi alias to $BASHRC"
+  echo "$ALIAS_LINE" >> "$BASHRC"
+fi
+
 # fzf key bindings (Ctrl-T, Ctrl-R, Alt-C)
 if [ -f "$KEYBINDINGS_SCRIPT" ]; then
   LINE="source $KEYBINDINGS_SCRIPT"
