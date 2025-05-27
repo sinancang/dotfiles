@@ -1,0 +1,29 @@
+name: Update Gist on Push
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+    paths:
+      - dotfiles/.bashrc
+
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update Gist
+        run: |
+          FILE_TO_SYNC="install.sh"
+          GIST_ID="a7c0c63de6bb780b27da5554e50f2860"
+
+          CONTENT=$(cat "$FILE_TO_SYNC")
+          PAYLOAD=$(jq -n --arg content "$CONTENT" '{"files": {"'"$FILE_TO_SYNC"'": {"content": $content}}}')
+
+          curl -X PATCH "https://api.github.com/gists/$GIST_ID" \
+            -H "Authorization: token ${{ secrets.GIST_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d "$PAYLOAD"
+
