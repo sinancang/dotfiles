@@ -15,7 +15,7 @@ jobs:
       - name: Update Gist
         run: |
           FILE_TO_SYNC="install.sh"
-          GIST_ID="a7c0c63de6bb780b27da5554e50f2860"
+          GIST_ID="4899d6b67ffa7c808343cfcbf57bcd81"
 
           CONTENT=$(cat "$FILE_TO_SYNC")
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"files": {"'"$FILE_TO_SYNC"'": {"content": $content}}}')
