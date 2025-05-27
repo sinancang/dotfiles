@@ -3,9 +3,7 @@ name: Update Gist on Push
 on:
   push:
     branches:
-      - main  # or your default branch
-    paths:
-      - dotfiles/.bashrc
+      - main
 
 jobs:
   update-gist:
