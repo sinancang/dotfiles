@@ -97,3 +97,4 @@ else
   log "Setting Git core.editor to nvim"
   git config --global core.editor "nvim"
 fi
+
