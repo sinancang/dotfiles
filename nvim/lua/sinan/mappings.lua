@@ -17,4 +17,5 @@ map("v", "<Tab>", ">gv", { noremap = true, silent = true })
 map("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 
 -- Open floating diagnostics
--- map("n", "<leader>e", vim.diagnostic.open_float, { buffer = 0 })
+vim.keymap.set("n", "+", "k", { noremap = true, silent = true })
+

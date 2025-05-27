@@ -37,6 +37,7 @@ Configs are best when highly personalized, but feel free to borrow and adapt
 * `jj` to exit insert mode
 * `<Tab>` / `<S-Tab>` to indent/un-indent in visual mode
 * `<C-Right>` / `<C-Left>` to jump word-wise
+* `+` to go up (`k`)
 * **LSP shortcuts:**
 
   * `gd`: go to definition
