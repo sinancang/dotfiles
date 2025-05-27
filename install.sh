@@ -89,3 +89,11 @@ fi
 
 log "Dotfiles setup complete! Reload your terminal."
 
+# 5) Set Git default editor to nvim
+CURRENT_EDITOR=$(git config --global core.editor || echo "")
+if [ "$CURRENT_EDITOR" = "nvim" ]; then
+  log "Skipped: Git core.editor already set to nvim"
+else
+  log "Setting Git core.editor to nvim"
+  git config --global core.editor "nvim"
+fi
