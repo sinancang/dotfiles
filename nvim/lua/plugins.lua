@@ -69,13 +69,16 @@ return {
             "hrsh7th/cmp-nvim-lsp", -- if you’re using nvim-cmp for capabilities
         },
         config = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
             require("neodev").setup()
-            require("lspconfig").clangd.setup({
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local lspconfig = require("lspconfig")
+
+            lspconfig.clangd.setup({
                 on_attach = on_attach,
                 capabilities = capabilities,
             })
-            require("lspconfig").lua_ls.setup({
+
+            lspconfig.lua_ls.setup({
                 on_attach    = on_attach,
                 capabilities = capabilities,
                 settings     = {
@@ -86,6 +89,21 @@ return {
                         telemetry = { enable = false },
                     },
                 },
+            })
+
+            lspconfig.rust_analyzer.setup({
+                filetypes = { "rust" },
+                root_dir = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = { allFeatures = true },
+                        checkOnSave = {
+                            command = "clippy"
+                        },
+                    },
+                },
+                capabilities = capabilities,
+                on_attach = on_attach,
             })
         end,
     },
@@ -104,32 +122,6 @@ return {
                 ensure_installed = { "clangd", "lua_ls" },
                 automatic_installation = true,
             })
-        end,
-    },
-    {
-        "mrcjkb/rustaceanvim",
-        version = "^6", -- pin to v6.x
-        lazy = false,   -- load immediately on Rust file types
-        init = function()
-            vim.g.rustaceanvim = {
-                server = {
-                    on_attach = on_attach,
-                },
-            }
-        end,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate", -- ensure grammars stay up to date
-        event = { "BufReadPost", "BufNewFile" },
-        opts = {
-            ensure_installed = { "rust" }, -- install the Rust parser
-            highlight = {
-                enable = true,
-            },
-        },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
         end,
     },
     {
