@@ -54,4 +54,6 @@ Configs are best when highly personalized, but feel free to borrow and adapt
 
 ### Dependencies
 
-- `neovim` version >= 11
+- [`neovim`](https://github.com/neovim/neovim) version >= 11
+- [`rust-analyzer`](https://github.com/rust-lang/rust-analyzer)
+- [`clangd`](https://github.com/clangd/clangd)
