@@ -49,3 +49,9 @@ Configs are best when highly personalized, but feel free to borrow and adapt
   * `<leader>e`: diagnostics
   * `<leader>W`: warnings only
   * `<leader>H`: hints only
+
+---
+
+### Dependencies
+
+- `neovim` version >= 11
