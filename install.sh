@@ -32,12 +32,15 @@ fi
 
 # 3) Setup configs via symlinking
 mkdir -p ~/.config/nvim
-ln -sf "$DOTFILES_DIR/nvim/init.lua"    ~/.config/nvim/init.lua
-ln -sf "$DOTFILES_DIR/nvim/lua"         ~/.config/nvim/lua
-ln -sf "$DOTFILES_DIR/nvim/stylua.toml" ~/.config/nvim/stylua.toml
+ln -sf "$DOTFILES_DIR/nvim/init.lua"         ~/.config/nvim/init.lua
+ln -sf "$DOTFILES_DIR/nvim/lua"              ~/.config/nvim/lua
+ln -sf "$DOTFILES_DIR/nvim/stylua.toml"      ~/.config/nvim/stylua.toml
 
 mkdir -p ~/.config/tmux
-ln -sf "$DOTFILES_DIR/tmux/tmux.conf"   ~/.config/tmux/tmux.conf
+ln -sf "$DOTFILES_DIR/tmux/tmux.conf"        ~/.config/tmux/tmux.conf
+
+mkdir -p ~/.config/wezterm
+ln -sf "$DOTFILES_DIR/wezterm/wezterm.lua"   ~/.config/wezterm/wezterm.lua
 
 # 4) Ensure PATH and fzf shell integration in ~/.bashrc, with logging
 # 4a) export PATH
